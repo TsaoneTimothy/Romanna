@@ -19,11 +19,13 @@ export interface Store {
   description?: string;
   logo_url?: string;
   address: string;
-  latitude: number;
-  longitude: number;
+  latitude?: number;
+  longitude?: number;
   phone?: string;
+  website_url?: string;
   is_active: boolean;
   created_at: string;
+  updated_at?: string;
 }
 
 export interface Category {

@@ -3,6 +3,7 @@ import { Toaster } from 'react-hot-toast';
 import { useAuth } from '@/hooks/useAuth';
 import { AuthForm } from '@/components/auth/AuthForm';
 import { VoiceAssistant } from '@/components/voice/VoiceAssistant';
+import { BottomNavigation } from '@/components/ui/BottomNavigation';
 import { Home } from '@/pages/Home';
 import { StorePage } from '@/pages/StorePage';
 import { Cart } from '@/pages/Cart';
@@ -107,6 +108,7 @@ function AppContent() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
 
+      <BottomNavigation />
       <VoiceAssistant onCommand={handleVoiceCommand} />
       <Toaster
         position="top-center"
@@ -115,6 +117,10 @@ function AppContent() {
           style: {
             fontSize: '18px',
             padding: '16px',
+            background: 'white',
+            color: '#1f2937',
+            borderRadius: '12px',
+            boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
           },
         }}
       />

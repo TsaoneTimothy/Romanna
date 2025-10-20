@@ -35,14 +35,16 @@ export function useAuth() {
 
   const fetchProfile = async (userId: string) => {
     try {
-      const { data, error } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', userId)
-        .maybeSingle();
-
-      if (error) throw error;
-      setProfile(data);
+      // For mock data, create a default profile
+      const mockProfile: Profile = {
+        id: userId,
+        email: 'demo@bite.com',
+        full_name: 'Demo User',
+        role: 'customer',
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      };
+      setProfile(mockProfile);
     } catch (error) {
       console.error('Error fetching profile:', error);
     } finally {
@@ -51,37 +53,39 @@ export function useAuth() {
   };
 
   const signUp = async (email: string, password: string, fullName: string, role: 'customer' | 'driver' = 'customer') => {
-    const { data, error } = await supabase.auth.signUp({
+    // For mock data, simulate successful signup
+    const mockUser = { id: 'mock-user-' + Date.now(), email };
+    const mockProfile: Profile = {
+      id: mockUser.id,
       email,
-      password,
-    });
-
-    if (error) throw error;
-
-    if (data.user) {
-      const { error: profileError } = await supabase
-        .from('profiles')
-        .insert({
-          id: data.user.id,
-          email,
-          full_name: fullName,
-          role,
-        });
-
-      if (profileError) throw profileError;
-    }
-
-    return data;
+      full_name: fullName,
+      role,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    };
+    
+    setUser(mockUser as any);
+    setProfile(mockProfile);
+    
+    return { data: { user: mockUser }, error: null };
   };
 
   const signIn = async (email: string, password: string) => {
-    const { data, error } = await supabase.auth.signInWithPassword({
+    // For mock data, simulate successful signin
+    const mockUser = { id: 'mock-user', email };
+    const mockProfile: Profile = {
+      id: mockUser.id,
       email,
-      password,
-    });
-
-    if (error) throw error;
-    return data;
+      full_name: 'Demo User',
+      role: 'customer',
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    };
+    
+    setUser(mockUser as any);
+    setProfile(mockProfile);
+    
+    return { data: { user: mockUser }, error: null };
   };
 
   const signOut = async () => {
