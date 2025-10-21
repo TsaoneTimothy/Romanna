@@ -46,13 +46,11 @@ export function StoreCard({ store, onClick }: StoreCardProps) {
           </div>
           {store.website_url && (
             <div className="bg-white/90 backdrop-blur-sm rounded-full px-2 py-1">
-              <span className="text-xs">🔗</span>
             </div>
           )}
         </div>
         <div className="absolute bottom-3 left-3">
           <div className="bg-white/90 backdrop-blur-sm rounded-full px-2 py-1">
-            <span className="text-xs font-semibold text-gray-800">🚚 15-30 min</span>
           </div>
         </div>
       </div>
