@@ -43,7 +43,6 @@ export function StoreCard({ store, onClick }: StoreCardProps) {
         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-all duration-300"></div>
         <div className="absolute top-3 right-3 flex gap-2">
           <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
-            <span className="text-xs font-bold text-gray-800">⭐ 4.5</span>
           </div>
           {store.website_url && (
             <div className="bg-white/90 backdrop-blur-sm rounded-full px-2 py-1">
