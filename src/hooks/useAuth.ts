@@ -9,7 +9,7 @@ export function useAuth() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then(({ data: { session } }: any) => {
       setUser(session?.user ?? null);
       if (session?.user) {
         fetchProfile(session.user.id);
@@ -18,7 +18,7 @@ export function useAuth() {
       }
     });
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event: any, session: any) => {
       (async () => {
         setUser(session?.user ?? null);
         if (session?.user) {
@@ -52,7 +52,7 @@ export function useAuth() {
     }
   };
 
-  const signUp = async (email: string, password: string, fullName: string, role: 'customer' | 'driver' = 'customer') => {
+  const signUp = async (email: string, _password: string, fullName: string, role: 'customer' | 'driver' = 'customer') => {
     // For mock data, simulate successful signup
     const mockUser = { id: 'mock-user-' + Date.now(), email };
     const mockProfile: Profile = {
@@ -70,7 +70,7 @@ export function useAuth() {
     return { data: { user: mockUser }, error: null };
   };
 
-  const signIn = async (email: string, password: string) => {
+  const signIn = async (email: string, _password: string) => {
     // For mock data, simulate successful signin
     const mockUser = { id: 'mock-user', email };
     const mockProfile: Profile = {

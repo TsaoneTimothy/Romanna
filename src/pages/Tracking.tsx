@@ -37,7 +37,7 @@ export function Tracking() {
           table: 'driver_locations',
           filter: `driver_id=eq.${order.driver_id}`,
         },
-        (payload) => {
+        (payload: any) => {
           setDriverLocation(payload.new as DriverLocation);
         }
       )
@@ -61,7 +61,7 @@ export function Tracking() {
           table: 'orders',
           filter: `id=eq.${orderId}`,
         },
-        (payload) => {
+        (payload: any) => {
           setOrder(payload.new as Order);
         }
       )

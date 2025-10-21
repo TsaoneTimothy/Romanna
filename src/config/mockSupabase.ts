@@ -1,16 +1,15 @@
 import { mockStores, mockProducts } from '@/data/mockData';
-import { Store, Product } from '@/types';
 
 // Mock Supabase client for development
 export const mockSupabase = {
   from: (table: string) => ({
-    select: (columns: string = '*') => ({
-      eq: (column: string, value: any) => ({
-        order: (column: string) => Promise.resolve({
-          data: table === 'stores' 
-            ? mockStores.filter(store => column === 'is_active' ? store.is_active === value : true)
-            : table === 'products' 
-            ? mockProducts.filter(product => column === 'store_id' ? product.store_id === value : true)
+    select: (_columns: string = '*') => ({
+      eq: (eqColumn: string, value: any) => ({
+        order: (_orderColumn: string) => Promise.resolve({
+          data: table === 'stores'
+            ? mockStores.filter(store => eqColumn === 'is_active' ? store.is_active === value : true)
+            : table === 'products'
+            ? mockProducts.filter(product => eqColumn === 'store_id' ? product.store_id === value : true)
             : [],
           error: null
         })

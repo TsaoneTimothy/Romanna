@@ -28,7 +28,7 @@ export function ChatBox({ orderId, userId }: ChatBoxProps) {
           table: 'messages',
           filter: `order_id=eq.${orderId}`,
         },
-        (payload) => {
+        (payload: any) => {
           setMessages((current) => [...current, payload.new as Message]);
         }
       )

@@ -7,26 +7,14 @@ interface StoreCardProps {
 }
 
 export function StoreCard({ store, onClick }: StoreCardProps) {
-  const getStoreIcon = (name: string) => {
+  const getStoreImage = (name: string) => {
     const lowerName = name.toLowerCase();
-    if (lowerName.includes('spar')) return '🛒'; // SPAR - grocery store
-    if (lowerName.includes('trans')) return '🏪'; // TRANS - cash & carry
-    if (lowerName.includes('fours')) return '🛍️'; // Fours - basket of good
-    if (lowerName.includes('choppies')) return '🛒'; // Choppies - grocery
-    if (lowerName.includes('shoprite')) return '🛒'; // Shoprite - grocery
-    if (lowerName.includes('pick n pay')) return '🛒'; // Pick n Pay - grocery
-    return '🏪';
-  };
-
-  const getGradientColors = (name: string) => {
-    const lowerName = name.toLowerCase();
-    if (lowerName.includes('spar')) return 'from-red-400 to-red-600'; // SPAR red theme
-    if (lowerName.includes('trans')) return 'from-blue-400 to-blue-600'; // TRANS blue theme
-    if (lowerName.includes('fours')) return 'from-green-400 to-green-600'; // Fours green theme
-    if (lowerName.includes('choppies')) return 'from-green-400 to-emerald-500'; // Choppies green theme
-    if (lowerName.includes('shoprite')) return 'from-red-400 to-red-500'; // Shoprite red theme
-    if (lowerName.includes('pick n pay')) return 'from-blue-400 to-indigo-500'; // Pick n Pay blue theme
-    return 'from-primary-400 to-primary-600';
+    if (lowerName.includes('spar')) return '/spar.png.png';
+    if (lowerName.includes('fours')) return '/fours.png.png';
+    if (lowerName.includes('choppies')) return '/choppies.png.png';
+    if (lowerName.includes('shoprite')) return '/shoprite.png.png';
+    if (lowerName.includes('pick n pay')) return '/picknpay.png.png';
+    return null;
   };
 
   const handleStoreClick = () => {
@@ -42,7 +30,16 @@ export function StoreCard({ store, onClick }: StoreCardProps) {
       onClick={handleStoreClick}
       className="group hover:scale-105 transition-all duration-300 hover:shadow-2xl border-2 border-gray-200 hover:border-primary-300 overflow-hidden cursor-pointer"
     >
-      <div className={`aspect-video bg-gradient-to-br ${getGradientColors(store.name)} flex items-center justify-center relative overflow-hidden`}>
+      <div className="aspect-video bg-white flex items-center justify-center relative overflow-hidden">
+        {getStoreImage(store.name) ? (
+          <img
+            src={getStoreImage(store.name)!}
+            alt={store.name}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300"></div>
+        )}
         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-all duration-300"></div>
         <div className="absolute top-3 right-3 flex gap-2">
           <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
@@ -54,17 +51,6 @@ export function StoreCard({ store, onClick }: StoreCardProps) {
             </div>
           )}
         </div>
-        {store.logo_url ? (
-          <img 
-            src={store.logo_url} 
-            alt={store.name} 
-            className="h-20 w-20 object-contain z-10 group-hover:scale-110 transition-transform duration-300" 
-          />
-        ) : (
-          <div className="text-6xl z-10 group-hover:scale-110 transition-transform duration-300">
-            {getStoreIcon(store.name)}
-          </div>
-        )}
         <div className="absolute bottom-3 left-3">
           <div className="bg-white/90 backdrop-blur-sm rounded-full px-2 py-1">
             <span className="text-xs font-semibold text-gray-800">🚚 15-30 min</span>
