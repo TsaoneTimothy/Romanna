@@ -74,7 +74,7 @@ export function StoreCard({ store, onClick }: StoreCardProps) {
           <span className="truncate">{store.address}</span>
         </div>
         <div className="mt-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-9">
             <span className="text-xs font-semibold text-secondary-600 bg-secondary-100 px-2 py-1 rounded-full">
               Free Delivery
             </span>
