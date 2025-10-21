@@ -38,11 +38,9 @@ export function StoreCard({ store, onClick }: StoreCardProps) {
         {/* Rating + link badges */}
         <div className="absolute top-3 right-3 flex gap-2 z-20">
           <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-bold text-gray-800 shadow">
-            ⭐ 4.5
           </div>
           {store.website_url && (
             <div className="bg-white/90 backdrop-blur-sm rounded-full px-2 py-1 text-xs shadow">
-              🔗
             </div>
           )}
         </div>
