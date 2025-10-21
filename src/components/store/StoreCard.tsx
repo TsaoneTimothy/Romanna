@@ -9,11 +9,11 @@ interface StoreCardProps {
 export function StoreCard({ store, onClick }: StoreCardProps) {
   const getStoreImage = (name: string) => {
     const lowerName = name.toLowerCase();
-    if (lowerName.includes('spar')) return '/spar.png.png';
-    if (lowerName.includes('fours')) return '/fours.png.png';
-    if (lowerName.includes('choppies')) return '/choppies.png.png';
-    if (lowerName.includes('shoprite')) return '/shoprite.png.png';
-    if (lowerName.includes('pick n pay')) return '/picknpay.png.png';
+    if (lowerName.includes('spar')) return '/spar.png';
+    if (lowerName.includes('fours')) return '/fours.png';
+    if (lowerName.includes('choppies')) return '/choppies.png';
+    if (lowerName.includes('shoprite')) return '/shoprite.png';
+    if (lowerName.includes('pick n pay')) return '/picknpay.png';
     return null;
   };
 
