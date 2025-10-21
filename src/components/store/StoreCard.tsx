@@ -18,6 +18,17 @@ export function StoreCard({ store, onClick }: StoreCardProps) {
     return '/stores/default.png'; // fallback image
   };
 
+  const getGradientColors = (name: string) => {
+    const lowerName = name.toLowerCase();
+    if (lowerName.includes('spar')) return 'from-red-400 to-red-600';
+    if (lowerName.includes('trans')) return 'from-blue-400 to-blue-600';
+    if (lowerName.includes('fours')) return 'from-green-400 to-green-600';
+    if (lowerName.includes('choppies')) return 'from-green-400 to-emerald-500';
+    if (lowerName.includes('shoprite')) return 'from-red-400 to-red-500';
+    if (lowerName.includes('pick n pay')) return 'from-blue-400 to-indigo-500';
+    return 'from-primary-400 to-primary-600';
+  };
+
   const handleStoreClick = () => {
     if (store.website_url) {
       window.open(store.website_url, '_blank', 'noopener,noreferrer');
