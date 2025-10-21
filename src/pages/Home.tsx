@@ -139,12 +139,12 @@ export function Home() {
           <div className="relative max-w-2xl mx-auto">
             <input
               type="text"
-              placeholder="Search for SPAR, TRANS, Fours, Choppies, Shoprite, Pick n Pay..."
+              placeholder="Search..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full px-6 py-4 pl-16 border-2 border-gray-300 rounded-2xl focus:ring-4 focus:ring-primary-200 focus:border-primary-500 text-lg shadow-lg transition-all bg-white hover:shadow-xl"
             />
-            <span className="absolute left-6 top-1/2 transform -translate-y-1/2 text-2xl">🔍</span>
+            <span className="absolute right-6 top-1/2 transform -translate-y-1/2 text-2xl">🔍</span>
             <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
               <Button 
                 className="bg-primary-500 hover:bg-primary-600 text-white border-0 rounded-full w-10 h-10 p-0"
