@@ -55,7 +55,6 @@ export function StoreCard({ store, onClick }: StoreCardProps) {
         {/* Delivery time badge */}
         <div className="absolute bottom-3 left-3 z-20">
           <div className="bg-white/90 backdrop-blur-sm rounded-full px-2 py-1 text-xs font-semibold text-gray-800 shadow">
-            🚚 15–30 min
           </div>
         </div>
       </div>
