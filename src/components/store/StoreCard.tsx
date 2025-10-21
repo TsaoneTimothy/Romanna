@@ -49,7 +49,7 @@ export function StoreCard({ store, onClick }: StoreCardProps) {
             </div>
           )}
         </div>
-        <div className="absolute bottom-3 left-3">
+        <div className="absolute bottom-6 left-5">
           <div className="bg-white/90 backdrop-blur-sm rounded-full px-2 py-1">
           </div>
         </div>
